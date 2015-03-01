@@ -11,23 +11,26 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import me.XxXYaJrAbXxX.Characters.Utilities;
+import me.XxXYaJrAbXxX.Characters.FileWriter.Config;
+import me.XxXYaJrAbXxX.Characters.FileWriter.SetData;
+import me.XxXYaJrAbXxX.Characters.DataCollect.GetData;
 
 public class RollCommand implements CommandExecutor {
-	private Utilities Util;
 	
 	public boolean onCommand(CommandSender sender, Command cmd,
 			String CommandLabel, String[] args) {
 		if (CommandLabel.equalsIgnoreCase("roll") && sender instanceof Player) {
 			if (args.length == 0) {
 				Player player = (Player) sender;
-				String name = Util.get(player, ".name", "");
+				Config PlayerData = new Config(this.utilities, sender.getName());
+				int selected = PlayerData.getInt("selected");
+				String name = PlayerData.getString("character." + selected + ".name");
 				if (name == null) {
 					sender.sendMessage(ChatColor.RED
 							+ "Unable to obtain data. Please contact an Admin!");
 					return true;
 				} else {
-					int range = (int) Util
-							.getDefaultConfig("Roll_Range");
+					int range = (int) GetData.getDefaultConfig("Roll_Range");
 					Random rand = new Random();
 					int n = rand.nextInt(20);
 					sender.sendMessage(ChatColor.DARK_AQUA + "You "

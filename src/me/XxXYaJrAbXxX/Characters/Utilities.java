@@ -6,8 +6,12 @@ import java.util.logging.Logger;
 
 import me.XxXYaJrAbXxX.Characters.Listeners.*;
 import me.XxXYaJrAbXxX.Characters.FileWriter.Config;
+import me.XxXYaJrAbXxX.Characters.FileWriter.SetData;
 import me.XxXYaJrAbXxX.Characters.Commands.CharCommand;
+import me.XxXYaJrAbXxX.Characters.Commands.NameCommand;
 import me.XxXYaJrAbXxX.Characters.Commands.RollCommand;
+import me.XxXYaJrAbXxX.Characters.DataCollect.GetData;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -30,6 +34,8 @@ public class Utilities extends JavaPlugin implements Listener {
 		this.saveDefaultConfig();
 		getConfig().options().copyDefaults(true);
 		new File(this.getDataFolder(), null).mkdirs();
+		getServer().getPluginManager().registerEvents(new GetData(this), this);
+		getServer().getPluginManager().registerEvents(new SetData(this), this);
 		File file = new File("/plugins/CharactersV2/");
 		for (Player player : Bukkit.getOnlinePlayers()) {
 			Config PlayerData = new Config(this, "PlayerData" + File.separator
@@ -60,47 +66,5 @@ public class Utilities extends JavaPlugin implements Listener {
 		return true;
 	}
 	return false;
-
-	}
-	
-	//Data collection resources
-	public String get(CommandSender sender, String parm1, String parm2) {
-		try {
-			Config PlayerData = new Config(this, sender.getName());
-			int Selected = PlayerData.getInt("Selected");
-			String data = PlayerData.getString("character" + Selected + parm1
-					+ parm2);
-			return data;
-		} catch (NullPointerException e) {
-			sender.sendMessage(ChatColor.RED + "Error Code: NPE-RD.17");
-		}
-		return null;
-	}
-
-	public Object getDefaultConfig(String string) {
-		try {
-		Object data = this.getConfig().options().configuration().get(string);
-		return data;
-		} catch (NullPointerException e) {
-			logger.log(Level.SEVERE ,ChatColor.RED + "Error Code: NPE-RD.17");
-		}
-		return null;
-	}
-	
-	public void Set(CommandSender sender, String parm1, String parm2, String value) {
-		Config PlayerData = new Config(this, sender.getName());
-		int Selected = PlayerData.getInt("Selected");
-		PlayerData.set("character" + Selected + parm1 + parm2, value);
-		PlayerData.save();
-		}
-	
-	@EventHandler
-	public void onPlayerJoinEvent(PlayerJoinEvent player) {
-		Config PlayerData = new Config(this, (player.getPlayer().getName()));
-		if (PlayerData.get("Selected") == null) {
-			PlayerData.createFile();
-		} else {
-		}
-
 	}
 }

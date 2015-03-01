@@ -6,7 +6,7 @@ import org.bukkit.command.CommandSender;
 
 public class CharCommand {
 	HelpCommand HelpCommand = new HelpCommand();
-	NameCommand NameCommand = new NameCommand();
+	NameCommand NameCommand = new NameCommand(null);
 	
 	public void onCommand(CommandSender sender, Command cmd, String CommandLabel, String[] args) {
 			if (args[0].equalsIgnoreCase("help")) {
