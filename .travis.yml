@@ -22,5 +22,3 @@ before_install:
 branches:
   only:
     - XxXYaJrAbXxX
- 
-script: grails clean && grails upgrade --non-interactive && grails test-app --non-interactive --stacktrace
