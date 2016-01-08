@@ -1,0 +1,88 @@
+## Default values for the Characters plugin
+
+Age_Default: 18
+
+## Human modifiers
+Human_Strength: 10
+Human_Dexterity: 10
+Human_Wisdom: 10
+
+## Elf modifiers
+Elf_Strength: 6
+Elf_Dexterity: 14
+Elf_Wisdom: 14
+
+## Dwarf modifiers
+Dwarf_Strength: 12
+Dwarf_Dexterity: 8
+Dwarf_Wisdom: 10
+
+## Ja'Qol modifiers
+JaQol_Strength: 10
+JaQol_Dexterity: 12
+JaQol_Wisdom: 8
+
+## Orc modifiers
+Orc_Strength: 14
+Orc_Dexterity: 8
+Orc_Wisdom: 8
+
+## Droconar modifiers
+Droconar_Strength: 6
+Droconar_Dexterity: 10
+Droconar_Wisdom: 14
+
+## Class Modifiers
+
+## Warrior modifiers
+Warrior_Strength: 6
+Warrior_Magic: -2
+Warrior_Ranged: -2
+
+## Wizard modifiers
+Wizard_Strength: -2
+Wizard_Magic: 6
+Wizard_Ranged: -2
+
+## Marksman modifiers
+Marksman_Strength: 6
+Marksman_Magic: -2
+Marksman_Ranged: -2
+
+## SpellSword modifiers
+Spellsword_Strength: 3
+Spellsword_Magic: 3
+Spellsword_Ranged: -4
+
+## Rogue modifiers
+Rogue_Strength: 3
+Rogue_Magic: -4
+Rogue_Ranged: 3
+
+## Warlock modifiers
+Warlock_Strength: -4
+Warlock_Magic: 3
+Warlock_Ranged: 3
+
+## Roll message radius
+Roll_Range: 20
+
+## Permission nodes:
+## Players:
+## characters.character
+## characters.character.name
+## characters.character.gender
+## characters.character.race
+## characters.character.class
+## characters.character.show
+## characters.character.show.others
+## characters.character.help
+## characters.character.help
+## characters.character.alignment
+## characters.character.hometown
+## characters.character.reset
+## characters.character.stats
+## characters.character.stats.others
+
+## Admins:
+## characters.character.reset.others

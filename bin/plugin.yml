@@ -1,0 +1,11 @@
+name: CharactersV2
+main: me.XxXYaJrAbXxX.Characters.Utilities
+version: 2.0
+commands:
+  char:
+    description: Character basic command
+    usage: Type '/char help' for a list of commands
+  roll:
+    description: Rolls a 1 to 20 dice
+  chartag:
+    description: Updates nametag
