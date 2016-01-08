@@ -11,18 +11,22 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import me.XxXYaJrAbXxX.Characters.Utilities;
-import me.XxXYaJrAbXxX.Characters.FileWriter.Config;
-import me.XxXYaJrAbXxX.Characters.FileWriter.SetData;
-import me.XxXYaJrAbXxX.Characters.DataCollect.GetData;
+import me.XxXYaJrAbXxX.Characters.FileWriter.*;
 
 public class RollCommand implements CommandExecutor {
+	private static Utilities Utilities;
+
+	
+	public RollCommand(Utilities Utilities) {
+		RollCommand.Utilities = Utilities;
+	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd,
 			String CommandLabel, String[] args) {
 		if (CommandLabel.equalsIgnoreCase("roll") && sender instanceof Player) {
 			if (args.length == 0) {
 				Player player = (Player) sender;
-				Config PlayerData = new Config(this.utilities, sender.getName());
+				Config PlayerData = new Config(RollCommand.Utilities, sender.getName());
 				int selected = PlayerData.getInt("selected");
 				String name = PlayerData.getString("character." + selected + ".name");
 				if (name == null) {
@@ -30,7 +34,7 @@ public class RollCommand implements CommandExecutor {
 							+ "Unable to obtain data. Please contact an Admin!");
 					return true;
 				} else {
-					int range = (int) GetData.getDefaultConfig("Roll_Range");
+					int range = (int) me.XxXYaJrAbXxX.Characters.DataCollect.GetData.getDefaultConfig("Roll_Range");
 					Random rand = new Random();
 					int n = rand.nextInt(20);
 					sender.sendMessage(ChatColor.DARK_AQUA + "You "

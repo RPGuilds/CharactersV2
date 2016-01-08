@@ -4,39 +4,33 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import me.XxXYaJrAbXxX.Characters.Utilities;
+import me.XxXYaJrAbXxX.Characters.Commands.*;
 import me.XxXYaJrAbXxX.Characters.FileWriter.Config;
 
 import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.event.Listener;
 
-public class GetData implements Listener {
-	Logger logger = Logger.getLogger("Minecraft");
-	private final Utilities utilities;
+public class GetData {
+	static Logger logger = Logger.getLogger("Minecraft");
+	CharCommand CharCommand = new CharCommand(this);
+
+	private static Utilities Utilities;
 	
-	public GetData(Utilities utilities) {
-		this.utilities = utilities;
-	}
-	
-	public String get(CommandSender sender, String parm1, String parm2) {
-		try {
-			Config PlayerData = new Config(this.utilities, sender.getName());
-			int Selected = PlayerData.getInt("Selected");
-			String data = PlayerData.getString("character" + Selected + parm1
-					+ parm2);
-			return data;
-		} catch (NullPointerException e) {
-			sender.sendMessage(ChatColor.RED + "Error Code: NPE-RD.17");
-		}
-		return null;
+	public GetData(Utilities Utilities) {
+		GetData.Utilities = Utilities;
 	}
 
-	public Object getDefaultConfig(String string) {
+	public String get(String player, String path) {
+		Config PlayerData = new Config(GetData.Utilities, player);
+		String data = PlayerData.getString(path);
+		return data;
+	}
+
+	public static Object getDefaultConfig(String string) {
 		try {
-		Object data = this.utilities.getConfig().options().configuration().get(string);
+		Object data = Utilities.getConfig().options().configuration().get(string);
 		return data;
 		} catch (NullPointerException e) {
-			logger.log(Level.SEVERE ,ChatColor.RED + "Error Code: NPE-GD.36/37");
+			logger.log(Level.SEVERE ,ChatColor.RED + "Error Code: NPE-GD.30");
 		}
 		return null;
 	}
