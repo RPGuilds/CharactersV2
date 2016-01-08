@@ -44,4 +44,4 @@ public class NameCommand implements Listener {
 		//}
 	}
 }
-//test
+
