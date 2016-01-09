@@ -15,7 +15,7 @@ public class CharCommand {
 	private static SetData SetData;
 	HelpCommand HelpCommand = new HelpCommand();
 	NameCommand NameCommand = new NameCommand(GetData, SetData);
-	ShowCommand ShowCommand = new ShowCommand(Utilities);
+	ShowCommand ShowCommand = new ShowCommand(GetData);
 	
 	public CharCommand(Utilities Utilities) {
 		CharCommand.Utilities = Utilities;
