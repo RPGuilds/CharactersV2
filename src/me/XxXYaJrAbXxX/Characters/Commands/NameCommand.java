@@ -20,7 +20,7 @@ public class NameCommand implements Listener {
 	}
 
 	public static void Name(CommandSender sender, String[] args) {
-		//try {
+		try {
 			String name = "";
 			name = args[1];
 			for (int i = 2; i < args.length; i++) {
@@ -39,9 +39,9 @@ public class NameCommand implements Listener {
 		//		String nickname = name;
 		//		Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "nick " + sender.getName() + " " + nickname);
 		//	}
-		//} catch (Exception e) {
-			
-		//}
+		} catch (Exception e) {
+			sender.sendMessage(ChatColor.RED + "Invalid arguments! /char name [name]");
+		}
 	}
 }
 
