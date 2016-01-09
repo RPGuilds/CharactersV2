@@ -14,7 +14,7 @@ public class GetData {
 	CharCommand CharCommand = new CharCommand(this);
 
 	private static Utilities Utilities;
-	
+
 	public GetData(Utilities Utilities) {
 		GetData.Utilities = Utilities;
 	}
@@ -27,10 +27,10 @@ public class GetData {
 
 	public static Object getDefaultConfig(String string) {
 		try {
-		Object data = Utilities.getConfig().options().configuration().get(string);
-		return data;
+			Object data = Utilities.getConfig().options().configuration().get(string);
+			return data;
 		} catch (NullPointerException e) {
-			logger.log(Level.SEVERE ,ChatColor.RED + "Error Code: NPE-GD.30");
+			logger.log(Level.SEVERE, ChatColor.RED + "Error Code: NPE-GD.30");
 		}
 		return null;
 	}

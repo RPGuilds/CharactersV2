@@ -17,10 +17,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Utilities extends JavaPlugin {
-	public SetData SetData = new SetData(this);
 	public GetData GetData = new GetData(this);
-	public RollCommand RollCommand = new RollCommand(this);
-	public CharCommand CharCommand = new CharCommand(this);
+	public SetData SetData = new SetData(this, GetData);
+	public RollCommand RollCommand = new RollCommand(GetData);
+	private CharCommand CharCommand = new CharCommand(this);
 	Logger logger = Logger.getLogger("Minecraft");
 
 	@Override
@@ -38,34 +38,33 @@ public class Utilities extends JavaPlugin {
 				} else {
 					logger.log(Level.INFO, player.getName() + "'s data already exists!");
 				}
-			} catch(Exception e) {
-				
+			} catch (Exception e) {
+
 			}
 		}
 		if (!file.exists()) {
 			new File("/plugins/CharactersV2/").mkdirs();
 		}
 		try {
-			this.getServer().getPluginManager()
-					.registerEvents(SetData, this);
+			this.getServer().getPluginManager().registerEvents(SetData, this);
 		} catch (Exception e) {
-			
+
 		}
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String CommandLabel, String[] args) {
-	//try {
-		if (CommandLabel.equalsIgnoreCase("char")) {
-			CharCommand.onCommand(sender, cmd, CommandLabel, args);
-			return true;
-		} else if (CommandLabel.equalsIgnoreCase("roll")) {
-			RollCommand.onCommand(sender, cmd, CommandLabel, args);
+		try {
+			if (CommandLabel.equalsIgnoreCase("char") && sender instanceof Player) {
+				CharCommand.onCommand(sender, cmd, CommandLabel, args);
+				return true;
+			} else if (CommandLabel.equalsIgnoreCase("roll") && sender instanceof Player) {
+				RollCommand.onCommand(sender, cmd, CommandLabel, args);
+				return true;
+			}
+		} catch (Exception e) {
+			sender.sendMessage(ChatColor.RED + "Type '/char help' for help!");
 			return true;
 		}
-	//} catch (Exception e) {
-		//sender.sendMessage(ChatColor.RED + "Type '/char help' for help!");
-	//	return true;
-	//}
-	return false;
+		return false;
 	}
 }

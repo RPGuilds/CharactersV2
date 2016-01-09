@@ -4,13 +4,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
-import me.XxXYaJrAbXxX.Characters.Utilities;
 import me.XxXYaJrAbXxX.Characters.FileWriter.SetData;
 import me.XxXYaJrAbXxX.Characters.DataCollect.GetData;
 
 public class NameCommand implements Listener {
-	@SuppressWarnings("unused")
-	private static CharCommand CharCommand;
 	private static SetData SetData;
 	private static GetData GetData;
 
@@ -27,21 +24,19 @@ public class NameCommand implements Listener {
 				name += " " + args[i];
 			}
 			String selected = GetData.get(sender.getName(), "selected");
-			SetData.Set(sender.getName(), "character" + selected + ".name" , name);
+			SetData.Set(sender.getName(), "character" + selected + ".name", name);
 			sender.sendMessage(ChatColor.GREEN + "Character name saved!");
-			//if (name.contains(" "))
-		//	{
-			//	String nickname = name.substring(0, name.indexOf(" "));
-			//	Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "nick " + sender.getName() + " " + nickname);
-			//}
-			//else
-			//{
-		//		String nickname = name;
-		//		Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "nick " + sender.getName() + " " + nickname);
-		//	}
+			if (name.contains(" ")) {
+				String nickname = name.replace(" ", "_");
+				Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(),
+						"nick " + sender.getName() + " " + nickname);
+			} else {
+				String nickname = name;
+				Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(),
+						"nick " + sender.getName() + " " + nickname);
+			}
 		} catch (Exception e) {
 			sender.sendMessage(ChatColor.RED + "Invalid arguments! /char name [name]");
 		}
 	}
 }
-
