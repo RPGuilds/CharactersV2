@@ -28,7 +28,7 @@ public class Utilities extends JavaPlugin {
 		this.saveDefaultConfig();
 		getConfig().options().copyDefaults(true);
 		new File(this.getDataFolder(), "PlayerData").mkdirs();
-		File file = new File("/plugins/CharactersV2/");
+		File file = new File("/plugins/RPGuildsAPI/");
 		for (Player player : Bukkit.getOnlinePlayers()) {
 			Config PlayerData = new Config(this, player.getName());
 			try {
@@ -43,7 +43,7 @@ public class Utilities extends JavaPlugin {
 			}
 		}
 		if (!file.exists()) {
-			new File("/plugins/CharactersV2/").mkdirs();
+			new File("/plugins/RPGuildsAPI/").mkdirs();
 		}
 		try {
 			this.getServer().getPluginManager().registerEvents(SetData, this);
