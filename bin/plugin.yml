@@ -1,0 +1,10 @@
+name: RPGuildsAPI
+main: me.XxXYaJrAbXxX.Characters.Utilities
+version: 1.0
+author: XxXYaJrAbXxX (Jay Bartmeier)
+commands:
+  char:
+    description: Character basic command
+    usage: Type '/char help' for a list of commands
+  roll:
+    description: Rolls a 1 to 20 dice

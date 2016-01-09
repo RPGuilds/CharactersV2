@@ -1,0 +1,137 @@
+## Default values for the Characters plugin
+
+Age_Default: 18
+
+## Human modifiers
+Human_Strength: 1
+Human_Dexterity: 1
+Human_Wisdom: 1
+Human_Agility: 1
+
+## Elf modifiers
+Elf_Strength: 0
+Elf_Dexterity: 2
+Elf_Wisdom: 1
+Elf_Agility: 1
+
+## Dwarf modifiers
+Dwarf_Strength: 2
+Dwarf_Dexterity: 0
+Dwarf_Wisdom: 2
+Dwarf_Agility: 0
+
+## Ja'Qol modifiers
+JaQol_Strength: 0
+JaQol_Dexterity: 2
+JaQol_Wisdom: 0
+JaQol_Agility: 2
+
+## Orc modifiers
+Orc_Strength: 3
+Orc_Dexterity: 0
+Orc_Wisdom: 0
+Orc_Agility: 1
+
+## Droconar modifiers
+Droconar_Strength: 0
+Droconar_Dexterity: 0
+Droconar_Wisdom: 3
+Droconar_Agility: 1
+
+## Dark elf modifiers
+Darkelf_Strength: 2
+Darkelf_Dexterity: 0 
+Darkelf_Wisdom: 1
+Darkelf_Agility: 1
+
+## Class Modifiers
+
+## Brute modifiers
+Brute_Strength: 6
+Brute_Dexterity: 0 
+Brute_Wisdom: 0
+Brute_Agility: 0
+
+## Wizard modifiers
+Wizard_Strength: 0
+Wizard_Dexterity: 0 
+Wizard_Wisdom: 6
+Wizard_Agility: 0
+
+## Archer modifiers
+Archer_Strength: 0
+Archer_Dexterity: 6
+Archer_Wisdom: 0
+Archer_Agility: 0
+
+## Scout modifiers
+Scout_Strength: 0
+Scout_Dexterity: 0
+Scout_Wisdom: 0
+Scout_Agility: 6
+
+## Battlemage modifiers
+Battlemage_Strength: 4
+Battlemage_Dexterity: -2
+Battlemage_Wisdom: 4
+Battlemage_Agility: 0
+
+
+## Monk modifiers
+Monk_Strength: 0
+Monk_Dexterity: -2
+Monk_Wisdom: 4
+Monk_Agility: 4
+
+## Warrior modifiers
+Warrior_Strength: 4
+Warrior_Dexterity: 0
+Warrior_Wisdom: -2
+Warrior_Agility: 4
+
+## Warlock modifiers
+Warlock_Strength: -2
+Warlock_Dexterity: 4
+Warlock_Wisdom: 4
+Warlock_Agility: 0
+
+## Ranger modifiers
+Ranger_Strength: 4
+Ranger_Dexterity: 4
+Ranger_Wisdom: -2
+Ranger_Agility: 0
+
+## Rogue modifiers
+Rogue_Strength: 0
+Rogue_Dexterity: 4
+Rogue_Wisdom: -2
+Rogue_Agility: 4
+
+## Child modifiers
+Child_Strength: -2
+Child_Dexterity: -2
+Child_Wisdom: -2
+Child_Agility: -2
+
+## Roll message radius
+Roll_Range: 20
+
+## Permission nodes:
+## Players:
+## characters.character
+## characters.character.name
+## characters.character.gender
+## characters.character.race
+## characters.character.class
+## characters.character.show
+## characters.character.show.others
+## characters.character.help
+## characters.character.help
+## characters.character.alignment
+## characters.character.hometown
+## characters.character.reset
+## characters.character.stats
+## characters.character.stats.others
+
+## Admins:
+## characters.character.reset.others
