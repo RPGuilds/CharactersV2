@@ -1,8 +1,8 @@
 language: java
 jdk:
 - oraclejdk8
-script: mvn compile test
-install: true
 branches:
   only:
     - XxXYaJrAbXxX
+script: mvn compile test
+install: true
