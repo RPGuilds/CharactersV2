@@ -4,5 +4,3 @@ jdk:
 branches:
   only:
     - XxXYaJrAbXxX
-install: ant deps
-script: ant test
