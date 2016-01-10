@@ -22,6 +22,7 @@ public class Utilities extends JavaPlugin {
 	public RollCommand RollCommand = new RollCommand(GetData);
 	private CharCommand CharCommand = new CharCommand(this);
 	Logger logger = Logger.getLogger("Minecraft");
+	public JavaPlugin RPGuildsAPI = this;
 
 	@Override
 	public void onEnable() {
