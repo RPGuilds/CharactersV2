@@ -26,6 +26,11 @@ public class RaceCommand {
 				race = race.substring(0, 1).toUpperCase() + race.substring(1);
 				SetData.Set(sender.getName(), "character" + selected + ".race", race);
 				sender.sendMessage(ChatColor.GREEN + "Character race saved!");
+			} else if (args[1].equalsIgnoreCase("golem") && sender.hasPermission("characters.character.race.golem")) {
+				String race = args[1].toLowerCase();
+				race = race.substring(0, 1).toUpperCase() + race.substring(1);
+				SetData.Set(sender.getName(), "character" + selected + ".race", race);
+				sender.sendMessage(ChatColor.GREEN + "Character race saved!");
 			} else {
 				sender.sendMessage(ChatColor.RED + "Invalid modifiers! /char race [Human, Dwarf, JaQol, Orc, Droconar, Elf or DarkElf]");
 			}

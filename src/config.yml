@@ -44,6 +44,12 @@ Darkelf_Dexterity: 0
 Darkelf_Wisdom: 1
 Darkelf_Agility: 1
 
+## Golem mofifiers
+Golem_Strength: 0
+Golem_Dexterity: 1
+Golem_Wisdom: 2
+Golem_Agility: 1
+
 ## Class Modifiers
 
 ## Brute modifiers

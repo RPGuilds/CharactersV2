@@ -20,7 +20,8 @@ public class RollCommand {
 	}
 
 	@SuppressWarnings("static-access")
-	public void onCommand(CommandSender sender, Command cmd, String CommandLabel, String[] args) {
+	public void onCommand(CommandSender sender, Command cmd, String CommandLabel, String[] args)
+			throws NullPointerException {
 		try {
 			String selected = GetData.get(sender.getName(), "selected");
 			String characterRace = GetData.get(sender.getName(), "character" + selected + ".race");
@@ -44,9 +45,10 @@ public class RollCommand {
 				List<Entity> players = player.getNearbyEntities(range, range, range);
 				for (int i = 0; i < players.size(); i++) {
 					if ((players.get(i) instanceof Player)) {
-						((Player) players.get(i)).sendMessage(ChatColor.DARK_AQUA
-								+ GetData.get(sender.getName(), "character" + selected + ".name") + ChatColor.WHITE
-								+ "rolled a " + (roll + 1) + " making their agility roll " + ((roll + 1) + Agility) + "!");
+						((Player) players.get(i)).sendMessage(
+								ChatColor.DARK_AQUA + GetData.get(sender.getName(), "character" + selected + ".name")
+										+ ChatColor.WHITE + " rolled a " + (roll + 1) + " making their agility roll "
+										+ ((roll + 1) + Agility) + "!");
 					}
 				}
 				sender.sendMessage(ChatColor.DARK_AQUA + "You " + ChatColor.WHITE + "rolled a " + (roll + 1)
@@ -58,7 +60,7 @@ public class RollCommand {
 					if ((players.get(i) instanceof Player)) {
 						((Player) players.get(i)).sendMessage(
 								ChatColor.DARK_AQUA + GetData.get(sender.getName(), "character" + selected + ".name")
-										+ ChatColor.WHITE + "rolled a " + (roll + 1) + " making their dexterity roll "
+										+ ChatColor.WHITE + " rolled a " + (roll + 1) + " making their dexterity roll "
 										+ ((roll + 1) + Dexterity) + "!");
 					}
 				}
@@ -69,9 +71,10 @@ public class RollCommand {
 				List<Entity> players = player.getNearbyEntities(range, range, range);
 				for (int i = 0; i < players.size(); i++) {
 					if ((players.get(i) instanceof Player)) {
-						((Player) players.get(i)).sendMessage(ChatColor.DARK_AQUA
-								+ GetData.get(sender.getName(), "character" + selected + ".name") + ChatColor.WHITE
-								+ "rolled a " + (roll + 1) + " making their strength roll " + ((roll + 1) + Strength) + "!");
+						((Player) players.get(i)).sendMessage(
+								ChatColor.DARK_AQUA + GetData.get(sender.getName(), "character" + selected + ".name")
+										+ ChatColor.WHITE + " rolled a " + (roll + 1) + " making their strength roll "
+										+ ((roll + 1) + Strength) + "!");
 					}
 				}
 				sender.sendMessage(ChatColor.DARK_AQUA + "You " + ChatColor.WHITE + "rolled a " + (roll + 1)
@@ -81,9 +84,10 @@ public class RollCommand {
 				List<Entity> players = player.getNearbyEntities(range, range, range);
 				for (int i = 0; i < players.size(); i++) {
 					if ((players.get(i) instanceof Player)) {
-						((Player) players.get(i)).sendMessage(ChatColor.DARK_AQUA
-								+ GetData.get(sender.getName(), "character" + selected + ".name") + ChatColor.WHITE
-								+ "rolled a " + (roll + 1) + " making their wisdom roll " + ((roll + 1) + Wisdom) + "!");
+						((Player) players.get(i)).sendMessage(
+								ChatColor.DARK_AQUA + GetData.get(sender.getName(), "character" + selected + ".name")
+										+ ChatColor.WHITE + " rolled a " + (roll + 1) + " making their wisdom roll "
+										+ ((roll + 1) + Wisdom) + "!");
 					}
 				}
 				sender.sendMessage(ChatColor.DARK_AQUA + "You " + ChatColor.WHITE + "rolled a " + (roll + 1)
@@ -95,14 +99,20 @@ public class RollCommand {
 			Player player = Bukkit.getPlayer(sender.getName());
 			int roll = Random.nextInt(20);
 			List<Entity> players = player.getNearbyEntities(range, range, range);
-			for (int i = 0; i < players.size(); i++) {
-				if ((players.get(i) instanceof Player)) {
-					((Player) players.get(i)).sendMessage(
-							ChatColor.DARK_AQUA + GetData.get(sender.getName(), "character" + selected + ".name")
-									+ ChatColor.WHITE + "rolled a " + (roll + 1) + "!");
+			if (GetData.get(player.getName(), "character" + selected + ".name").equalsIgnoreCase("")
+					|| GetData.get(player.getName(), "character" + selected + ".race").equalsIgnoreCase("")
+					|| GetData.get(player.getName(), "character" + selected + ".class").equalsIgnoreCase("")) {
+				sender.sendMessage(ChatColor.RED + "You must set up your character sheet properly first!");
+			} else {
+				for (int i = 0; i < players.size(); i++) {
+					if ((players.get(i) instanceof Player)) {
+						((Player) players.get(i)).sendMessage(
+								ChatColor.DARK_AQUA + GetData.get(sender.getName(), "character" + selected + ".name")
+										+ ChatColor.WHITE + " rolled a " + (roll + 1) + "!");
+					}
 				}
+				sender.sendMessage(ChatColor.DARK_AQUA + "You " + ChatColor.WHITE + "rolled a " + (roll + 1) + "!");
 			}
-			sender.sendMessage(ChatColor.DARK_AQUA + "You " + ChatColor.WHITE + "rolled a " + (roll + 1) + "!");
 		}
 	}
 }

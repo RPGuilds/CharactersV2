@@ -103,7 +103,6 @@ public class ShowCommand {
 				sender.sendMessage(ChatColor.GOLD + "Their selected character is: " + ChatColor.WHITE + (GetData.get(playersname, "selected") == null ? "1" : GetData.get(playersname, "selected")));
 			} 
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 }
