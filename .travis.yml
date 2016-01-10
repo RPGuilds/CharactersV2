@@ -4,5 +4,5 @@ jdk:
 branches:
   only:
     - XxXYaJrAbXxX
-script: mvn compile test
-install: true
+install: ant deps
+script: ant test
