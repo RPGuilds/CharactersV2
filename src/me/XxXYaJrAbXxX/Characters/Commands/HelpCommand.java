@@ -24,6 +24,8 @@ public class HelpCommand {
 				+ "sets your roleplay characters alignment");
 		sender.sendMessage(ChatColor.GOLD + "/char hometown <hometown>: " + ChatColor.WHITE
 				+ "sets your roleplay characters hometown");
+		sender.sendMessage(ChatColor.GOLD + "/char magic [name] [magic] [level]: " + ChatColor.WHITE
+				+ "sets a students magic knowledge. Check website for more info");
 		sender.sendMessage(
 				ChatColor.GOLD + "/char show <name>: " + ChatColor.WHITE + "shows roleplay character information");
 		sender.sendMessage(

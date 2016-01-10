@@ -27,6 +27,7 @@ public class Utilities extends JavaPlugin {
 	public void onEnable() {
 		this.saveDefaultConfig();
 		getConfig().options().copyDefaults(true);
+		logger.log(Level.INFO, "RPGuildsAPI by " + this.getDescription().getAuthors());
 		new File(this.getDataFolder(), "PlayerData").mkdirs();
 		File file = new File("/plugins/RPGuildsAPI/");
 		for (Player player : Bukkit.getOnlinePlayers()) {
