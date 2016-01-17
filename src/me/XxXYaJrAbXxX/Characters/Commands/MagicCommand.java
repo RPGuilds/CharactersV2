@@ -39,43 +39,48 @@ public class MagicCommand {
 							String teacherLevel = GetData.get(sender.getName(),
 									"character" + teacherSelected + ".magic." + magic);
 							if (args[3].equalsIgnoreCase("novice")
-									&& (teacherLevel.equalsIgnoreCase("Apprentice in " + magic)
+									&& ((teacherLevel.equalsIgnoreCase("Apprentice in " + magic)
 											|| teacherLevel.equalsIgnoreCase("Adept in " + magic)
 											|| teacherLevel.equalsIgnoreCase("Expert in " + magic)
-											|| teacherLevel.equalsIgnoreCase("Master in " + magic))) {
+											|| teacherLevel.equalsIgnoreCase("Master in " + magic))
+											|| sender.hasPermission("characters.character.magic.any"))) {
 								SetData.Set(player.getName(), "character" + studentSelected + ".magic." + magic,
 										"Novice in " + magic);
 								sender.sendMessage(
 										ChatColor.GREEN + player.getName() + " is now a novice in " + magic + "!");
 								player.sendMessage(ChatColor.GREEN + "You are now a novice in " + magic + "!");
 							} else if (args[3].equalsIgnoreCase("apprentice")
-									&& (teacherLevel.equalsIgnoreCase("Adept in " + magic)
+									&& ((teacherLevel.equalsIgnoreCase("Adept in " + magic)
 											|| teacherLevel.equalsIgnoreCase("Expert in " + magic)
-											|| teacherLevel.equalsIgnoreCase("Master in " + magic))) {
+											|| teacherLevel.equalsIgnoreCase("Master in " + magic))
+											|| sender.hasPermission("characters.character.magic.any"))) {
 								SetData.Set(player.getName(), "character" + studentSelected + ".magic." + magic,
 										"Apprentice in " + magic);
 								sender.sendMessage(
 										ChatColor.GREEN + player.getName() + " is now an apprentice in " + magic + "!");
 								player.sendMessage(ChatColor.GREEN + "You are now an apprentice in " + magic + "!");
 							} else if (args[3].equalsIgnoreCase("adept")
-									&& (teacherLevel.equalsIgnoreCase("Adept in " + magic)
+									&& ((teacherLevel.equalsIgnoreCase("Adept in " + magic)
 											|| teacherLevel.equalsIgnoreCase("Expert in " + magic)
-											|| teacherLevel.equalsIgnoreCase("Master in " + magic))) {
+											|| teacherLevel.equalsIgnoreCase("Master in " + magic))
+											|| sender.hasPermission("characters.character.magic.any"))) {
 								SetData.Set(player.getName(), "character" + studentSelected + ".magic." + magic,
 										"Adept in " + magic);
 								sender.sendMessage(
 										ChatColor.GREEN + player.getName() + " is now an adept in " + magic + "!");
 								player.sendMessage(ChatColor.GREEN + "You are now an adept in " + magic + "!");
 							} else if (args[3].equalsIgnoreCase("expert")
-									&& (teacherLevel.equalsIgnoreCase("Expert in " + magic)
-											|| teacherLevel.equalsIgnoreCase("Master in " + magic))) {
+									&& ((teacherLevel.equalsIgnoreCase("Expert in " + magic)
+											|| teacherLevel.equalsIgnoreCase("Master in " + magic))
+											|| sender.hasPermission("characters.character.magic.any"))) {
 								SetData.Set(player.getName(), "character" + studentSelected + ".magic." + magic,
 										"Expert in " + magic);
 								sender.sendMessage(
 										ChatColor.GREEN + player.getName() + " is now an expert in " + magic + "!");
 								player.sendMessage(ChatColor.GREEN + "You are now a expert in " + magic + "!");
-							} else if (args[3].equalsIgnoreCase("master")
-									&& sender.hasPermission("characters.character.magic.master")) {
+							} else if ((args[3].equalsIgnoreCase("master")
+									&& sender.hasPermission("characters.character.magic.master"))
+									|| sender.hasPermission("characters.character.magic.any")) {
 								SetData.Set(player.getName(), "character" + studentSelected + ".magic." + magic,
 										"Master in " + magic);
 								sender.sendMessage(
