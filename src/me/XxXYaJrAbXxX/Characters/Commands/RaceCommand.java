@@ -23,7 +23,11 @@ public class RaceCommand {
 					args[1].equalsIgnoreCase("Droconar") || args[1].equalsIgnoreCase("Elf") ||
 					args[1].equalsIgnoreCase("DarkElf")) {
 				String race = args[1].toLowerCase();
+				if (race.equalsIgnoreCase("jaqol")) {
+					race = race.substring(0, 1).toUpperCase() + race.substring(1, 2) + race.substring(2, 3).toUpperCase() + race.substring(3);
+				} else {
 				race = race.substring(0, 1).toUpperCase() + race.substring(1);
+				}
 				SetData.Set(sender.getName(), "character" + selected + ".race", race);
 				sender.sendMessage(ChatColor.GREEN + "Character race saved!");
 			} else if (args[1].equalsIgnoreCase("golem") && sender.hasPermission("characters.character.race.golem")) {

@@ -23,17 +23,21 @@ public class NameCommand implements Listener {
 			for (int i = 2; i < args.length; i++) {
 				name += " " + args[i];
 			}
-			String selected = GetData.get(sender.getName(), "selected");
-			SetData.Set(sender.getName(), "character" + selected + ".name", name);
-			sender.sendMessage(ChatColor.GREEN + "Character name saved!");
-			if (name.contains(" ")) {
-				String nickname = name.replace(" ", "_");
-				Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(),
-						"nick " + sender.getName() + " " + nickname);
+			if (name.contains("&")) {
+				sender.sendMessage(ChatColor.RED + "You may only use alphanumerical characters!");
 			} else {
-				String nickname = name;
-				Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(),
-						"nick " + sender.getName() + " " + nickname);
+				String selected = GetData.get(sender.getName(), "selected");
+				SetData.Set(sender.getName(), "character" + selected + ".name", name);
+				sender.sendMessage(ChatColor.GREEN + "Character name saved!");
+				if (name.contains(" ")) {
+					String nickname = name.replace(" ", "_");
+					Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(),
+							"nick " + sender.getName() + " " + nickname);
+				} else {
+					String nickname = name;
+					Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(),
+							"nick " + sender.getName() + " " + nickname);
+				}
 			}
 		} catch (Exception e) {
 			sender.sendMessage(ChatColor.RED + "Invalid arguments! /char name [name]");
