@@ -63,22 +63,26 @@ public class SetData implements Listener {
 	}
 
 	public void regeneratePlayerData(String player) {
-		String selected = GetData.get(player, "selected");
-		Set(player, "character" + selected + ".name", "");
-		Set(player, "character" + selected + ".gender", "");
-		Set(player, "character" + selected + ".race", "");
-		Set(player, "character" + selected + ".class", "");
-		Set(player, "character" + selected + ".alignment", "");
-		Set(player, "character" + selected + ".hometown", "");
-		Set(player, "character" + selected + ".magic.pyromancy", "");
-		Set(player, "character" + selected + ".magic.aquamancy", "");
-		Set(player, "character" + selected + ".magic.aeromancy", "");
-		Set(player, "character" + selected + ".magic.geomancy", "");
-		Set(player, "character" + selected + ".magic.restoration", "");
-		Set(player, "character" + selected + ".magic.illusion", "");
-		Set(player, "character" + selected + ".magic.psionics", "");
-		Set(player, "character" + selected + ".magic.druidry", "");
-		Set(player, "character" + selected + ".magic.bloodmagic", "");
-		Set(player, "character" + selected + ".magic.necromancy", "");
+		try {
+			String selected = GetData.get(player, "selected");
+			Set(player, "character" + selected + ".name", "");
+			Set(player, "character" + selected + ".gender", "");
+			Set(player, "character" + selected + ".race", "");
+			Set(player, "character" + selected + ".class", "");
+			Set(player, "character" + selected + ".alignment", "");
+			Set(player, "character" + selected + ".hometown", "");
+			Set(player, "character" + selected + ".magic.pyromancy", "");
+			Set(player, "character" + selected + ".magic.aquamancy", "");
+			Set(player, "character" + selected + ".magic.aeromancy", "");
+			Set(player, "character" + selected + ".magic.geomancy", "");
+			Set(player, "character" + selected + ".magic.restoration", "");
+			Set(player, "character" + selected + ".magic.illusion", "");
+			Set(player, "character" + selected + ".magic.psionics", "");
+			Set(player, "character" + selected + ".magic.druidry", "");
+			Set(player, "character" + selected + ".magic.bloodmagic", "");
+			Set(player, "character" + selected + ".magic.necromancy", "");
+		} catch (Exception e) {
+			generatePlayerData(player);
+		}
 	}
 }
